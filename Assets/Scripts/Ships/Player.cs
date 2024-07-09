@@ -64,32 +64,33 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.CompareTag("MapBorderForPlayer")) Kill();
 
-        if (collision.gameObject.CompareTag("Money"))
+        // Это точно не хороший код
+
+        switch (collision.gameObject.tag)
         {
-            money += 1;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Bone"))
-        {
-            points += 32;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Emerald"))
-        {
-            points += 64;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("MoneyChest"))
-        {
-            money += 5;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("MagicBall"))
-        {
-            points += 128;
-            Destroy(collision.gameObject);
+            case "Money":
+                money += 1;
+                Destroy(collision.gameObject);
+                break;
+            case "MoneyChest":
+                money += 5;
+                Destroy(collision.gameObject);
+                break;
+            case "Bone":
+                points += 32;
+                Destroy(collision.gameObject);
+                break;
+            case "Emerald":
+                points += 64;
+                Destroy(collision.gameObject);
+                break;
+            case "MagicBall":
+                points += 128;
+                Destroy(collision.gameObject);
+                break;
         }
     }
 }

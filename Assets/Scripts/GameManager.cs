@@ -43,36 +43,76 @@ public class GameManager : MonoBehaviour
 
     public int GetMoneyAmount(string shipName)
     {
-        if (shipName == "white") { return playerMoney; }
-        else if (shipName == "blue") { return bluePlayerMoney; }
-        else if (shipName == "green") { return greenPlayerMoney; }
-        else if (shipName == "yellow") { return yellowPlayerMoney; }
-        else { return -1; }
+        switch (shipName)
+        {
+            case "white":
+                return playerMoney;
+            case "blue":
+                return bluePlayerMoney;
+            case "green":
+                return greenPlayerMoney;
+            case "yellow":
+                return yellowPlayerMoney;
+            default:
+                return 0;
+        }
     }
 
     public int GetPointsAmount(string shipName)
     {
-        if (shipName == "white") { return playerPoints; }
-        else if (shipName == "blue") { return bluePlayerPoints; }
-        else if (shipName == "green") { return greenPlayerPoints; }
-        else if (shipName == "yellow") { return yellowPlayerPoints; }
-        else { return -1; }
+        switch (shipName)
+        {
+            case "white":
+                return playerPoints;
+            case "blue":
+                return bluePlayerPoints;
+            case "green":
+                return greenPlayerPoints;
+            case "yellow":
+                return yellowPlayerPoints;
+            default:
+                return 0;
+        }
     }
 
     public void SetMoneyAmount(string shipName, int amount)
     {
-        if (shipName == "white") { playerMoney = amount; }
-        else if (shipName == "blue") { bluePlayerMoney = amount; }
-        else if (shipName == "green") { greenPlayerMoney = amount; }
-        else if (shipName == "yellow") { yellowPlayerMoney = amount; }
+        switch (shipName)
+        {
+            case "white":
+                playerMoney = amount;
+                break;
+            case "blue":
+                bluePlayerMoney = amount;
+                break;
+            case "green":
+                greenPlayerMoney = amount;
+                break;
+            case "yellow":
+                yellowPlayerMoney = amount;
+                break;
+
+        }
     }
 
     public void SetPointsAmount(string shipName, int amount)
     {
-        if (shipName == "white") { playerPoints = amount; }
-        else if (shipName == "blue") { bluePlayerPoints = amount; }
-        else if (shipName == "green") { greenPlayerPoints = amount; }
-        else if (shipName == "yellow") { yellowPlayerPoints = amount; }
+        switch (shipName)
+        {
+            case "white":
+                playerPoints = amount;
+                break;
+            case "blue":
+                bluePlayerPoints = amount;
+                break;
+            case "green":
+                greenPlayerPoints = amount;
+                break;
+            case "yellow":
+                yellowPlayerPoints = amount;
+                break;
+
+        }
     }
 
     public void ResetValuesInMenu()
@@ -126,6 +166,8 @@ public class GameManager : MonoBehaviour
         else if (shipName == "yellow") { return speedMultiplier[3]; }
         else { return 0; }
     }
+
+    // Не смотреть. Опасно для жизни.
 
     public void SetWinnerShip(Image img)
     {

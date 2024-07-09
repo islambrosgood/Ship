@@ -15,7 +15,9 @@ public class ProgressManager : MonoBehaviour
         ChangeProgressBarState();
     }
 
-    private void ChangeProgressBarState() //оЋень двигатель прогресса
+    //оЋень двигатель прогресса
+
+    private void ChangeProgressBarState()
     { 
         if (_gameManager.speedProgressLevel[0] >= 1)
         {
